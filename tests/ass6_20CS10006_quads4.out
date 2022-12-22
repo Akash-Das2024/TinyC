@@ -1,0 +1,216 @@
+========================================================================================================================
+LEXICAL ANALYSIS                                  
+========================================================================================================================
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: ;
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: CHAR
+TOKEN: PUNCTUATOR: *
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: ;
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: INT
+TOKEN: PUNCTUATOR: *
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: ;
+SINGLE LINE COMMENT
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: {
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: EQUAL
+TOKEN: INTEGER_CONSTANT
+TOKEN: PUNCTUATOR: ,
+TOKEN: IDENTIFIER
+TOKEN: EQUAL
+TOKEN: INTEGER_CONSTANT
+TOKEN: PUNCTUATOR: ,
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: ,
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: ,
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: ;
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: STRING_LITERAL
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: ;
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: PUNCTUATOR: &
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: ;
+TOKEN: FOR
+TOKEN: PUNCTUATOR: (
+TOKEN: IDENTIFIER
+TOKEN: EQUAL
+TOKEN: INTEGER_CONSTANT
+TOKEN: PUNCTUATOR: ;
+TOKEN: IDENTIFIER
+TOKEN: LESS_THAN
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: ;
+TOKEN: IDENTIFIER
+TOKEN: EQUAL
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: +
+TOKEN: INTEGER_CONSTANT
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: {
+TOKEN: IDENTIFIER
+TOKEN: EQUAL
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: +
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: ;
+TOKEN: IDENTIFIER
+TOKEN: EQUAL
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: ;
+TOKEN: IDENTIFIER
+TOKEN: EQUAL
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: ;
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: ;
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: STRING_LITERAL
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: ;
+TOKEN: PUNCTUATOR: }
+TOKEN: RETURN
+TOKEN: INTEGER_CONSTANT
+TOKEN: PUNCTUATOR: ;
+TOKEN: PUNCTUATOR: }
+========================================================================================================================
+PARSING SUCCESSFUL                                
+========================================================================================================================
+Symbol Table: Global                                                             Parent: null
+------------------------------------------------------------------------------------------------------------------------
+Name           Type                     Category       Initial Value                 Size        Offset      Nested Table
+------------------------------------------------------------------------------------------------------------------------
+printInt       integer                  function                                     4           0           printInt
+printStr       integer                  function                                     4           4           printStr
+readInt        integer                  function                                     4           8           readInt
+main           integer                  function                                     4           12          main
+------------------------------------------------------------------------------------------------------------------------
+
+========================================================================================================================
+Symbol Table: printInt                                                           Parent: Global
+------------------------------------------------------------------------------------------------------------------------
+Name           Type                     Category       Initial Value                 Size        Offset      Nested Table
+------------------------------------------------------------------------------------------------------------------------
+num            integer                  param                                        4           0           null
+return         integer                  local                                        4           4           null
+------------------------------------------------------------------------------------------------------------------------
+
+========================================================================================================================
+Symbol Table: printStr                                                           Parent: Global
+------------------------------------------------------------------------------------------------------------------------
+Name           Type                     Category       Initial Value                 Size        Offset      Nested Table
+------------------------------------------------------------------------------------------------------------------------
+str            ptr(char)                param                                        4           0           null
+return         integer                  local                                        4           4           null
+------------------------------------------------------------------------------------------------------------------------
+
+========================================================================================================================
+Symbol Table: readInt                                                            Parent: Global
+------------------------------------------------------------------------------------------------------------------------
+Name           Type                     Category       Initial Value                 Size        Offset      Nested Table
+------------------------------------------------------------------------------------------------------------------------
+num            ptr(integer)             param                                        4           0           null
+return         integer                  local                                        4           4           null
+------------------------------------------------------------------------------------------------------------------------
+
+========================================================================================================================
+Symbol Table: main                                                               Parent: Global
+------------------------------------------------------------------------------------------------------------------------
+Name           Type                     Category       Initial Value                 Size        Offset      Nested Table
+------------------------------------------------------------------------------------------------------------------------
+return         integer                  local                                        4           0           null
+n1             integer                  local          0                             4           4           null
+t00            integer                  temp           0                             4           8           null
+n2             integer                  local          1                             4           12          null
+t01            integer                  temp           1                             4           16          null
+n3             integer                  local                                        4           20          null
+i              integer                  local                                        4           24          null
+number         integer                  local                                        4           28          null
+printStr       integer                  local                                        4           32          null
+t02            ptr(char)                temp           "Enter a number upto which you want to evaluate Fibonacci number: "4           36          null
+t03            integer                  temp                                         4           40          null
+readInt        integer                  local                                        4           44          null
+t04            ptr(integer)             temp                                         4           48          null
+t05            integer                  temp                                         4           52          null
+t06            integer                  temp           2                             4           56          null
+t07            integer                  temp                                         4           60          null
+t08            integer                  temp           1                             4           64          null
+t09            integer                  temp                                         4           68          null
+t10            integer                  temp                                         4           72          null
+t11            integer                  temp                                         4           76          null
+t12            integer                  temp                                         4           80          null
+t13            integer                  temp                                         4           84          null
+t14            integer                  temp                                         4           88          null
+printInt       integer                  local                                        4           92          null
+t15            integer                  temp                                         4           96          null
+t16            ptr(char)                temp           "\n"                          4           100         null
+t17            integer                  temp                                         4           104         null
+t18            integer                  temp           0                             4           108         null
+------------------------------------------------------------------------------------------------------------------------
+
+==============================
+Quad Translation
+------------------------------
+
+main: 
+
+	1   :	t00 = 0
+	2   :	n1 = t00
+	3   :	t01 = 1
+	4   :	n2 = t01
+	5   :	op
+	6   :	param t02
+	7   :	t03 = call printStr, 1
+	8   :	t04 = &number
+	9   :	param t04
+	10  :	t05 = call readInt, 1
+	11  :	t06 = 2
+	12  :	i = t06
+	13  :	if i<number goto 19
+	14  :	goto 29
+	15  :	t08 = 1
+	16  :	t09 = i + t08
+	17  :	i = t09
+	18  :	goto 13
+	19  :	t11 = n1 + n2
+	20  :	n3 = t11
+	21  :	n1 = n2
+	22  :	n2 = n3
+	23  :	param n3
+	24  :	t15 = call printInt, 1
+	25  :	op
+	26  :	param t16
+	27  :	t17 = call printStr, 1
+	28  :	goto 15
+	29  :	t18 = 0
+	30  :	ret t18
+------------------------------

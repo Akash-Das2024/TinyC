@@ -1,0 +1,150 @@
+========================================================================================================================
+LEXICAL ANALYSIS                                  
+========================================================================================================================
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: ;
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: CHAR
+TOKEN: PUNCTUATOR: *
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: ;
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: INT
+TOKEN: PUNCTUATOR: *
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: ;
+SINGLE LINE COMMENT
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: {
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: EQUAL
+TOKEN: INTEGER_CONSTANT
+TOKEN: PUNCTUATOR: ;
+TOKEN: INT
+TOKEN: IDENTIFIER
+TOKEN: EQUAL
+TOKEN: INTEGER_CONSTANT
+TOKEN: PUNCTUATOR: ;
+TOKEN: WHILE
+TOKEN: PUNCTUATOR: (
+TOKEN: IDENTIFIER
+TOKEN: LESS_THAN
+TOKEN: INTEGER_CONSTANT
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: {
+TOKEN: IDENTIFIER
+TOKEN: EQUAL
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: +
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: ;
+TOKEN: IDENTIFIER
+TOKEN: INCREMENT
+TOKEN: PUNCTUATOR: ;
+TOKEN: PUNCTUATOR: }
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: (
+TOKEN: IDENTIFIER
+TOKEN: PUNCTUATOR: )
+TOKEN: PUNCTUATOR: ;
+TOKEN: RETURN
+TOKEN: INTEGER_CONSTANT
+TOKEN: PUNCTUATOR: ;
+TOKEN: PUNCTUATOR: }
+========================================================================================================================
+PARSING SUCCESSFUL                                
+========================================================================================================================
+Symbol Table: Global                                                             Parent: null
+------------------------------------------------------------------------------------------------------------------------
+Name           Type                     Category       Initial Value                 Size        Offset      Nested Table
+------------------------------------------------------------------------------------------------------------------------
+printInt       integer                  function                                     4           0           printInt
+printStr       integer                  function                                     4           4           printStr
+readInt        integer                  function                                     4           8           readInt
+main           integer                  function                                     4           12          main
+------------------------------------------------------------------------------------------------------------------------
+
+========================================================================================================================
+Symbol Table: printInt                                                           Parent: Global
+------------------------------------------------------------------------------------------------------------------------
+Name           Type                     Category       Initial Value                 Size        Offset      Nested Table
+------------------------------------------------------------------------------------------------------------------------
+num            integer                  param                                        4           0           null
+return         integer                  local                                        4           4           null
+------------------------------------------------------------------------------------------------------------------------
+
+========================================================================================================================
+Symbol Table: printStr                                                           Parent: Global
+------------------------------------------------------------------------------------------------------------------------
+Name           Type                     Category       Initial Value                 Size        Offset      Nested Table
+------------------------------------------------------------------------------------------------------------------------
+str            ptr(char)                param                                        4           0           null
+return         integer                  local                                        4           4           null
+------------------------------------------------------------------------------------------------------------------------
+
+========================================================================================================================
+Symbol Table: readInt                                                            Parent: Global
+------------------------------------------------------------------------------------------------------------------------
+Name           Type                     Category       Initial Value                 Size        Offset      Nested Table
+------------------------------------------------------------------------------------------------------------------------
+num            ptr(integer)             param                                        4           0           null
+return         integer                  local                                        4           4           null
+------------------------------------------------------------------------------------------------------------------------
+
+========================================================================================================================
+Symbol Table: main                                                               Parent: Global
+------------------------------------------------------------------------------------------------------------------------
+Name           Type                     Category       Initial Value                 Size        Offset      Nested Table
+------------------------------------------------------------------------------------------------------------------------
+return         integer                  local                                        4           0           null
+i              integer                  local          0                             4           4           null
+t00            integer                  temp           0                             4           8           null
+sum            integer                  local          0                             4           12          null
+t01            integer                  temp           0                             4           16          null
+t02            integer                  temp           11                            4           20          null
+t03            integer                  temp                                         4           24          null
+t04            integer                  temp                                         4           28          null
+t05            integer                  temp                                         4           32          null
+printInt       integer                  local                                        4           36          null
+t06            integer                  temp                                         4           40          null
+t07            integer                  temp           0                             4           44          null
+------------------------------------------------------------------------------------------------------------------------
+
+==============================
+Quad Translation
+------------------------------
+
+main: 
+
+	1   :	t00 = 0
+	2   :	i = t00
+	3   :	t01 = 0
+	4   :	sum = t01
+	5   :	t02 = 11
+	6   :	if i<t02 goto 8
+	7   :	goto 13
+	8   :	t03 = sum + i
+	9   :	sum = t03
+	10  :	t05 = i
+	11  :	i = i + 1
+	12  :	goto 5
+	13  :	param sum
+	14  :	t06 = call printInt, 1
+	15  :	t07 = 0
+	16  :	ret t07
+------------------------------
