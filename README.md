@@ -1,1 +1,1 @@
-# COM-lab-assgn-6
+# Tiny C
