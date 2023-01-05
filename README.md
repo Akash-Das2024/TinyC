@@ -14,9 +14,10 @@ A lex program consists of three sections: a section containing definitions, a se
 separated by %% .
 
 ---
+`
 definitions/declarations
 %%
 translations
 %%
 auxiliary functions
----
+`
