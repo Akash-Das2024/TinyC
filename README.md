@@ -15,9 +15,10 @@ separated by %% .
 
 ---
 
--definitions/declarations
--%%
--translations
--%%
--auxiliary functions
+definitions/declarations <br />
+%% <br />
+translations <br />
+%% <br />
+auxiliary functions <br />
 
+--- 
