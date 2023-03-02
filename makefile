@@ -1,12 +1,14 @@
-#############
+#####################################################
 # make -- run complete project tinyC library and test
 # make test
-# make clean and cleantest 
+# make clean and cleantest
 # make flex
 # make bison
 # make tinyC
 # make library
-#############
+# make clean
+# make cleantest
+######################################################
 
 run: tinyC library test
 
